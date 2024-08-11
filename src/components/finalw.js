@@ -69,7 +69,7 @@ const Final = () => {
                     ))}
                     </div>
                 </div>
-                    <img className="w-80 md:block" src="logos/tanveer.png" alt="Test Image"/>
+                    <img className="hidden w-80 md:block" src="logos/tanveer.png" alt="Test Image"/>
                 </div>
         </div>
     );
