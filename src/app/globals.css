@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: outfit-bold;
+  src: url('../Outfit/static/Outfit-Bold.ttf');
+}
+
+
+.outfit-bold{
+  font-family: 'outfit-bold';
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: outfit-light;
+  src: url('../Outfit/static/Outfit-Light.ttf');
+}
+
+.outfit-light{
+  font-family: 'outfit-light';
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: sami-bold;
+  src: url('../Outfit/static/Outfit-SemiBold.ttf');
+}
+
+.outfit-sami{
+  font-family: 'sami-bold';
+}
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  background-color: #2A2A2A;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+.inner-shadow {
+  background: rgb(246,244,244);
+  background: linear-gradient(90deg, rgba(246,244,244,1) 44%, rgba(228,228,228,1) 100%);
+  
+}
+
+.bar:hover{
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(-180deg);
+}
+
+.gradient {
+  background: #8E2DE2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #8547ff, #8E2DE2); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(45deg, #ff2424, #6e3a9c);
+  background-size: 400% 400%;
+  animation: gradientAnimation 5s ease-in-out infinite;
+}
+
+.caffeeBg{
+  background: #ec8600; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #73ee00, #8E2DE2); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(45deg, #ffffff, #15ff00);
+  background-size: 400% 400%;
+  animation: gradientAnimation 3s ease-in-out infinite;
+
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-custom {
+  display: flex;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(-180deg);
+}
+
+.background{
+  background-image: url('tanveer.png');
+  background-repeat: no-repeat;
+}
+
+.slick-next, .slick-arrow,.slick-prev, .slick-next{
+  display: none;
+}
+
+
+.angled-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Ensure this is below the content */
+}
+
+.top-left, .bottom-right {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.top-left {
+  background-color: red; /* Change to your desired color */
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.bottom-right {
+  background-color: rgba(0, 0, 0, 0.205); /* Change to your desired color */
+  clip-path: polygon(100% 100%, 100% 0, 0 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 2; /* Ensure this is above the angled-div */
+  /* Add other styles for your content as needed */
+}
+
+.stick {
+  position: fixed;
+  background: rgb(255,255,255);
+  background: linear-gradient(135deg, rgba(255,255,255,0.922) 16%, rgba(239,254,255,0) 29%, rgba(156,249,255,0) 62%, rgba(80,245,255,0.199) 68%, rgba(255,255,255,0.930) 74%, rgba(255,255,255,0.930) 97%);
+  transition: background 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Hover effect to trigger the transition */
+.stick:hover {
+  background: linear-gradient(135deg, rgba(255,255,255,0.5) 16%, rgba(239,254,255,0) 29%, rgba(156,249,255,0.5) 62%, rgba(80,245,255,0.4) 68%, rgba(255,255,255,0.8) 74%, rgba(255,255,255,0.8) 97%);
+}
+
+.fadeOut {
+  animation: fadeOut .3s ease-in;  
+}
+
+@keyframes fadeOut {
+  0%{
+    transform: scale(1.1);
+    opacity: 0;
+  }100%{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.slick-list{
+  display: flex;
+  width: 100%;
+}
+
+
+.react-icons {
+  vertical-align: middle;
+  size: 2em;
+}
