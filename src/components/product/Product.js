@@ -3,7 +3,7 @@ import { Link } from "theme-ui";
 
 const Product = (props) => {
     return (
-        <div className="border p-2 rounded-md relative shadow-sm fadeOut" width="300px" height="300px">
+        <div className="border p-2 rounded-md relative shadow-sm fadeOut min-h-[500px]" >
             <div className="absolute bg-white p-2 rounded-sm">
                 <div className="flex justify-start items-center gap-2">
                     <div className={`${props.clr} w-4 h-4 rounded-full`}></div>

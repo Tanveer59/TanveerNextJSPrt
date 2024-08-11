@@ -36,7 +36,7 @@ const Projects = () => {
                 {displayedProjects.map((projectSet, setIndex) => (
                         <div key={setIndex} className="flex flex-col md:flex-row w-full justify-between gap-2 md:flex-wrap lg:flex-nowrap ">
                             {projectSet.map((item, index) => (
-                                <div key={`${setIndex}-${index}`} className="w-full md:w-1/2 lg:w-1/4 min-h-[500px]">
+                                <div key={`${setIndex}-${index}`} className="w-full md:w-1/2 lg:w-1/4 ">
                                     <Product src={item.src} tool={item.tool} link={item.link} st={item.state} clr={item.color}/>
                                 </div>
                             ))}
