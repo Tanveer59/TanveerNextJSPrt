@@ -82,12 +82,12 @@ const techStack = {
   };
 
 const projectsList = [
-    { src: './primages/tanveer.JPG', tool: 'NextJs', link: 'https://github.com', state: "In Progress", color: 'bg-yellow-500'},
-    { src: './primages/lear.JPG', tool: 'WordPress', link: 'https://learwear.com', state: "completed", color: 'bg-green-500' },
-    { src: './primages/steeline.JPG', tool: 'MERN Dev', link: 'https://steelinecorporation.com', state: 'completed', color: 'bg-green-500'},
-    { src: './primages/eight.JPG', tool: 'WordPress', link: 'https://eightstarsent.com', state: 'completed', color:'bg-green-500' },
-    { src: './primages/zair.JPG', tool: 'NextJs', link: 'https://zairenterprises.com',state: "in progress" , color: "bg-yellow-500"},
-    { src: './primages/jabbeen.JPG', tool: 'WordPress', link: 'https://jabeenart.com', state: "Completed" ,color: "bg-green-500"},
+    { src: './primages/t1.jpg', tool: 'NextJs', link: 'https://github.com', state: "In Progress", color: 'bg-yellow-500'},
+    { src: './primages/l1.jpg', tool: 'WordPress', link: 'https://learwear.com', state: "completed", color: 'bg-green-500' },
+    { src: './primages/s1.jpg', tool: 'MERN Dev', link: 'https://steelinecorporation.com', state: 'completed', color: 'bg-green-500'},
+    { src: './primages/e1.jpg', tool: 'WordPress', link: 'https://eightstarsent.com', state: 'completed', color:'bg-green-500' },
+    { src: './primages/z1.jpg', tool: 'NextJs', link: 'https://zairenterprises.com',state: "in progress" , color: "bg-yellow-500"},
+    { src: './primages/j1.jpg', tool: 'WordPress', link: 'https://jabeenart.com', state: "Completed" ,color: "bg-green-500"},
 ];
 
 export default techStack;
