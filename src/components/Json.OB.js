@@ -92,4 +92,3 @@ const projectsList = [
 
 export default techStack;
 export {  projectsList };
-WSH
