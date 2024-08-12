@@ -3,12 +3,12 @@ import Product from "./product/Product";
 import { useState } from "react";
 
 const projectsList = [
-    { src: "primages/t1.jpg", tool: 'NextJs', link: 'https://github.com', state: "In Progress", color: 'bg-yellow-500'},
-    { src: "primages/l1.jpg", tool: 'WordPress', link: 'https://learwear.com', state: "Completed", color: 'bg-green-500' },
-    { src: "primages/s1.jpg", tool: 'MERN Dev', link: 'https://steelinecorporation.com', state: "Completed", color: 'bg-green-500'},
-    { src: "primages/e1.jpg", tool: 'WordPress', link: 'https://eightstarsent.com', state: "Completed", color: 'bg-green-500' },
-    { src: "primages/z1.jpg", tool: 'NextJs', link: 'https://zairenterprises.com', state: "In Progress", color: "bg-yellow-500"},
-    { src: "primages/j1.jpg", tool: 'WordPress', link: 'https://jabeenart.com', state: "Completed", color: "bg-green-500"},
+    { src: "./primages/t1.jpg", tool: 'NextJs', link: 'https://github.com', state: "In Progress", color: 'bg-yellow-500'},
+    { src: "./primages/l1.jpg", tool: 'WordPress', link: 'https://learwear.com', state: "Completed", color: 'bg-green-500' },
+    { src: "./primages/s1.jpg", tool: 'MERN Dev', link: 'https://steelinecorporation.com', state: "Completed", color: 'bg-green-500'},
+    { src: "./primages/e1.jpg", tool: 'WordPress', link: 'https://eightstarsent.com', state: "Completed", color: 'bg-green-500' },
+    { src: "./primages/z1.jpg", tool: 'NextJs', link: 'https://zairenterprises.com', state: "In Progress", color: "bg-yellow-500"},
+    { src: "./primages/j1.jpg", tool: 'WordPress', link: 'https://jabeenart.com', state: "Completed", color: "bg-green-500"},
 ];
 
 
