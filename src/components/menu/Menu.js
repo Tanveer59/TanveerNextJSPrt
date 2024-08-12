@@ -56,7 +56,7 @@ const Menu = () => {
     }
 
     return (
-        <div className={` top-0 menu-container menu-overlay z-[100] w-full ${ scrolled ? "stick" : "absolute" } `}>
+        <div className={` top-0 menu-container menu-overlay z-[100] w-full ${ scrolled ? "stick pl-2 pt-4 pr-2 md:pl-0 md:pr-0 md:pt-0" : "absolute" } `}>
             <div
                 className={`flex justify-between  items-center  lg:pl-20 lg:pr-20 ${ scrolled ? 'p-1 shadow-sm' : "p-2" }`}
             >
@@ -78,7 +78,7 @@ const Menu = () => {
                             <p className="outfit-light uppercase md:text-2xl hover:cursor-pointer">Close</p>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-between min-h-[100%]">
+                    <div className="flex flex-col justify-between h-screen">
                         <div className="mt-10" ref={container}>
                             {menuLinks.map((link, index) => (
                                 <div className="menu-link-item" key={index}>

@@ -3,7 +3,7 @@ import { Link } from "theme-ui";
 
 const Product = (props) => {
     return (
-        <div className="border flex flex-col justify-between p-2 rounded-md relative shadow-sm fadeOut min-h-[500px]" >
+        <div className="border flex flex-col justify-between p-2 rounded-md relative shadow-sm fadeOut" >
             <div className="absolute bg-white p-2 rounded-sm">
                 <div className="flex justify-start items-center gap-2">
                     <div className={`${props.clr} w-4 h-4 rounded-full`}></div>
@@ -11,7 +11,7 @@ const Product = (props) => {
                 </div> 
             </div>
             <img src={props.src}/>
-            <p className=" text-black pt-4 outfit-light">Project that discribe my skills in {props.tool}.</p>
+            <p className=" text-black pt-4 text-xl outfit-light">Project that discribe my skills in {props.tool}.</p>
             <div className="flex flex-row justify-between w-[100%] pt-6">
                 <div className="flex justify-between w-[100%] items-end">
                     <p className=" border text-black p-[0.5em] outfit-sami ">{props.tool}</p>
