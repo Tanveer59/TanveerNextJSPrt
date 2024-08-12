@@ -85,4 +85,3 @@ const techStack = {
 
 
 export default techStack;
-export {  projectsList };
