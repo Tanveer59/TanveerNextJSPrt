@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: outfit-bold;
+  src: url('../Outfit/static/Outfit-Bold.ttf');
+}
+
+
+.outfit-bold{
+  font-family: 'outfit-bold';
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: outfit-light;
+  src: url('../Outfit/static/Outfit-Light.ttf');
+}
+
+.outfit-light{
+  font-family: 'outfit-light';
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: sami-bold;
+  src: url('../Outfit/static/Outfit-SemiBold.ttf');
+}
+
+.outfit-sami{
+  font-family: 'sami-bold';
+}
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  background: rgb(164,158,255);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+.inner-shadow {
+  background: rgb(246,244,244);
+  background: linear-gradient(90deg, rgba(246,244,244,1) 44%, rgba(228,228,228,1) 100%);
+  
+}
+
+.bar:hover{
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(-180deg);
+}
+
+.gradient {
+  background: #8E2DE2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #8547ff, #8E2DE2); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(45deg, #ff2424, #6e3a9c);
+  background-size: 400% 400%;
+  animation: gradientAnimation 5s ease-in-out infinite;
+}
+
+.caffeeBg{
+  background: #ec8600; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #73ee00, #8E2DE2); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(45deg, #ffffff, #15ff00);
+  background-size: 400% 400%;
+  animation: gradientAnimation 3s ease-in-out infinite;
+
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-custom {
+  display: flex;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(-180deg);
+}
+.background {
+  width: 100%;
+  background-repeat: no-repeat;
+  background: linear-gradient(290deg, black 20%, white 20%);
+
+}
+
+
+.my-image {
+  background-image: url('./myimg.webp');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  width: 100%;
+  height: 100%;
+
+  
+}
+
+.slick-next, .slick-arrow,.slick-prev, .slick-next{
+  display: none;
+}
+
+
+.angled-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Ensure this is below the content */
+}
+
+.top-left, .bottom-right {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.top-left {
+  background-color: red; /* Change to your desired color */
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.bottom-right {
+  background-color: rgba(0, 0, 0, 0.205); /* Change to your desired color */
+  clip-path: polygon(100% 100%, 100% 0, 0 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 2; /* Ensure this is above the angled-div */
+  /* Add other styles for your content as needed */
+}
+
+.stick {
+  position: fixed;
+  background: rgb(255,255,255);
+  background: linear-gradient(135deg, rgba(255,255,255,0.922) 16%, rgba(239,254,255,0) 29%, rgba(156,249,255,0) 62%, rgba(80,245,255,0.199) 68%, rgba(255,255,255,0.930) 74%, rgba(255,255,255,0.930) 97%);
+}
+
+/* Hover effect to trigger the transition */
+.stick:hover {
+  background: linear-gradient(135deg, rgba(255,255,255,0.5) 16%, rgba(239,254,255,0) 29%, rgba(156,249,255,0.5) 62%, rgba(80,245,255,0.4) 68%, rgba(255,255,255,0.8) 74%, rgba(255,255,255,0.8) 97%);
+}
+
+.fadeOut {
+  animation: fadeOut .3s ease-in;  
+}
+
+@keyframes fadeOut {
+  0%{
+    transform: scale(1.1);
+    opacity: 0;
+  }100%{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.slick-list{
+  display: flex;
+  width: 100%;
+}
+
+
+.react-icons {
+  vertical-align: middle;
+  size: 2em;
+}
+
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  background-color: white;
+  z-index: 999;
+}
+
+.ban {
+  width: 100%;
+  height: 25px;
+  background-color: #eab308;
+  position: absolute;
+  left: 50%;
+  top: 39.5%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

@@ -1,0 +1,22 @@
+
+#admin {
+    width: 100vw;
+    height: 100vh;
+    background: rgb(48, 48, 48);
+    background: linear-gradient(212deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 36%);
+}
+
+.password {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    position: absolute;
+    left: 50%;
+    min-width: 50%;
+    min-height: auto;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(164,158,255);
+    background: linear-gradient(212deg, rgba(164,158,255,1) 0%, rgba(255,255,255,1) 36%);
+    border-radius: 15px;
+
+}
+
