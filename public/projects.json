@@ -28,5 +28,55 @@
     "alt": "Shopify Project",
     "width": 800,
     "height": 600
+  },
+  {
+    "src": "/uploads/1759721449338.webp",
+    "tool": "Wordpress",
+    "link": "https://remitrio.com/",
+    "state": "Completed",
+    "color": "bg-green-500",
+    "alt": "Wordpress Project",
+    "width": 800,
+    "height": 600
+  },
+  {
+    "src": "/uploads/1759721672336.webp",
+    "tool": "Shopify ",
+    "link": "https://www.highlandredstone.com/",
+    "state": "Completed",
+    "color": "bg-green-500",
+    "alt": "Shopify  Project",
+    "width": 800,
+    "height": 600
+  },
+  {
+    "src": "/uploads/1759722346562.webp",
+    "tool": "shopify",
+    "link": "https://3hscents.com/",
+    "state": "Completed",
+    "color": "bg-green-500",
+    "alt": "shopify Project",
+    "width": 800,
+    "height": 600
+  },
+  {
+    "src": "/uploads/1759722525772.webp",
+    "tool": "Wordpress",
+    "link": "https://paklovebeauty.co.uk/",
+    "state": "Completed",
+    "color": "bg-green-500",
+    "alt": "Wordpress Project",
+    "width": 800,
+    "height": 600
+  },
+  {
+    "src": "/uploads/1759722719910.webp",
+    "tool": "Wordpress",
+    "link": "https://voguemensalon.vip/",
+    "state": "Completed",
+    "color": "bg-green-500",
+    "alt": "Wordpress Project",
+    "width": 800,
+    "height": 600
   }
 ]

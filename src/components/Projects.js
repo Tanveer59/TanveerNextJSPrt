@@ -116,13 +116,13 @@ const Projects = () => {
       {/* Header */}
       <div className="outfit-light flex flex-col justify-start md:w-[100%]">
         <p className="pb-2 text-[#c7c7c7]">Feature Projects</p>
-        <p className="md:text-2xl md:w-[70%] lg:text-2xl lg:pr-60 text-white">
+        <p className="md:text-2xl md:w-[70%] lg:text-2xl lg:w-[50%] text-white">
           I crafted digital solutions that showcase my passion and expertise in Web Design & Development!
         </p>
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-10">
         {projectItems}
       </div>
 
