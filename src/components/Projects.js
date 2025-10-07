@@ -5,90 +5,90 @@ import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-let dataArr = [
-  {
-    "src": "/uploads/1759663245533.png",
-    "tool": "Wordpress",
-    "link": "https://thepizzabox.co.uk/",
-    "state": "Completed",
-    "color": "bg-green-500",
-    "alt": "Wordpress Project",
-    "width": 800,
-    "height": 600
-  },
-  {
-    "src": "/uploads/1759663798558.png",
-    "tool": "Wordpress",
-    "link": "https://ursports.co/",
-    "state": "Completed",
-    "color": "bg-green-500",
-    "alt": "Wordpress Project",
-    "width": 800,
-    "height": 600
-  },
-  {
-    "src": "/uploads/1759664802629.png",
-    "tool": "Shopify",
-    "link": "https://www.finelinesuk.com/",
-    "state": "Completed",
-    "color": "bg-green-500",
-    "alt": "Shopify Project",
-    "width": 800,
-    "height": 600
-  },
-  {
-    "src": "/uploads/1759721449338.webp",
-    "tool": "Wordpress",
-    "link": "https://remitrio.com/",
-    "state": "Completed",
-    "color": "bg-green-500",
-    "alt": "Wordpress Project",
-    "width": 800,
-    "height": 600
-  },
-  {
-    "src": "/uploads/1759721672336.webp",
-    "tool": "Shopify ",
-    "link": "https://www.highlandredstone.com/",
-    "state": "Completed",
-    "color": "bg-green-500",
-    "alt": "Shopify  Project",
-    "width": 800,
-    "height": 600
-  },
-  {
-    "src": "/uploads/1759722346562.webp",
-    "tool": "shopify",
-    "link": "https://3hscents.com/",
-    "state": "Completed",
-    "color": "bg-green-500",
-    "alt": "shopify Project",
-    "width": 800,
-    "height": 600
-  },
-  {
-    "src": "/uploads/1759722525772.webp",
-    "tool": "Wordpress",
-    "link": "https://paklovebeauty.co.uk/",
-    "state": "Completed",
-    "color": "bg-green-500",
-    "alt": "Wordpress Project",
-    "width": 800,
-    "height": 600
-  },
-  {
-    "src": "/uploads/1759722719910.webp",
-    "tool": "Wordpress",
-    "link": "https://voguemensalon.vip/",
-    "state": "Completed",
-    "color": "bg-green-500",
-    "alt": "Wordpress Project",
-    "width": 800,
-    "height": 600
-  }
-]
-
 gsap.registerPlugin(ScrollTrigger);
+
+const dataArr = [
+  {
+    src: "/uploads/1759663245533.png",
+    tool: "Wordpress",
+    link: "https://thepizzabox.co.uk/",
+    state: "Completed",
+    color: "bg-green-500",
+    alt: "Wordpress Project",
+    width: 800,
+    height: 600,
+  },
+  {
+    src: "/uploads/1759663798558.png",
+    tool: "Wordpress",
+    link: "https://ursports.co/",
+    state: "Completed",
+    color: "bg-green-500",
+    alt: "Wordpress Project",
+    width: 800,
+    height: 600,
+  },
+  {
+    src: "/uploads/1759664802629.png",
+    tool: "Shopify",
+    link: "https://www.finelinesuk.com/",
+    state: "Completed",
+    color: "bg-green-500",
+    alt: "Shopify Project",
+    width: 800,
+    height: 600,
+  },
+  {
+    src: "/uploads/1759721449338.webp",
+    tool: "Wordpress",
+    link: "https://remitrio.com/",
+    state: "Completed",
+    color: "bg-green-500",
+    alt: "Wordpress Project",
+    width: 800,
+    height: 600,
+  },
+  {
+    src: "/uploads/1759721672336.webp",
+    tool: "Shopify",
+    link: "https://www.highlandredstone.com/",
+    state: "Completed",
+    color: "bg-green-500",
+    alt: "Shopify Project",
+    width: 800,
+    height: 600,
+  },
+  {
+    src: "/uploads/1759722346562.webp",
+    tool: "Shopify",
+    link: "https://3hscents.com/",
+    state: "Completed",
+    color: "bg-green-500",
+    alt: "Shopify Project",
+    width: 800,
+    height: 600,
+  },
+  {
+    src: "/uploads/1759722525772.webp",
+    tool: "Wordpress",
+    link: "https://paklovebeauty.co.uk/",
+    state: "Completed",
+    color: "bg-green-500",
+    alt: "Wordpress Project",
+    width: 800,
+    height: 600,
+  },
+  {
+    src: "/uploads/1759722719910.webp",
+    tool: "Wordpress",
+    link: "https://voguemensalon.vip/",
+    state: "Completed",
+    color: "bg-green-500",
+    alt: "Wordpress Project",
+    width: 800,
+    height: 600,
+  },
+];
 
 const MemoizedProduct = memo(Product);
 
@@ -98,22 +98,11 @@ const Projects = () => {
   const [displayedProjects, setDisplayedProjects] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(itemsPerPage);
   const projectsRef = useRef(null);
-  setProjectsList(dataArr);
-  // // ✅ Fetch projects
-  // useEffect(() => {
-  //   const fetchProjects = async () => {
-  //     try {
-  //       const res = await fetch("/api/projects");
-  //       const data = await res.json();
-  //       if (Array.isArray(data)) {
-  //         setProjectsList(data);
-  //       }
-  //     } catch (err) {
-  //       console.error("Failed to fetch projects:", err);
-  //     }
-  //   };
-  //   fetchProjects();
-  // }, []);
+
+  // ✅ Initialize data once
+  useEffect(() => {
+    setProjectsList(dataArr);
+  }, []);
 
   // ✅ Show initial projects
   useEffect(() => {
@@ -141,7 +130,7 @@ const Projects = () => {
             ease: "power3.out",
             scrollTrigger: {
               trigger: card,
-              start: "top 85%", // when card enters near bottom of viewport
+              start: "top 85%",
               toggleActions: "play none none reverse",
             },
           }
