@@ -103,7 +103,7 @@ const dataArr = [
 const MemoizedProduct = memo(Product);
 
 const Projects = () => {
-  const itemsPerPage = 8;
+  const itemsPerPage = 9;
   const [projectsList, setProjectsList] = useState([]);
   const [displayedProjects, setDisplayedProjects] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(itemsPerPage);
