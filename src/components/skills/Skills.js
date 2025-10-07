@@ -143,7 +143,7 @@ const Skills = () => {
 
   return (
     <section
-      className=""
+      className="w-full bg-[#000000]"
     >
       <div className="relative flex flex-col items-center px-4 md:px-10 lg:px-20 py-28 w-full gap-12 backdrop-blur-3xl bg-white/5 rounded-3xl">
         <div className="text-center md:text-left md:w-full">
