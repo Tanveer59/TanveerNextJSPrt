@@ -145,7 +145,7 @@ const Skills = () => {
     <section className="w-full bg-gradient-to-b from-[#0a0a0a] via-[#111111] to-[#0a0a0a] text-white">
       <div className="flex flex-col items-center px-4 md:px-10 lg:px-20 py-28 w-full gap-12">
         <div className="text-center md:text-left md:w-full">
-          <h2 className="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+          <h2 className="text-3xl font-semibold text-white">
             Skills & Expertise
           </h2>
           <p className="mt-2 text-gray-400 text-lg">
