@@ -187,8 +187,7 @@ const Skills = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="glass-card bg-white/10 backdrop-blur-xl border border-white/20 hover:border-cyan-400/50 
-                             shadow-lg hover:shadow-cyan-500/20 p-6 rounded-2xl transition-all"
+                  className="glass-card hover:shadow-gray-500/20 p-6 rounded-2xl transition-all"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     {Icon && (
