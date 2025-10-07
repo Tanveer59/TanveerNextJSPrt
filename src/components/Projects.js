@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const dataArr = [
   {
-    src: "/uploads/1759663245533.png",
+    src: "uploads/1759663245533.png",
     tool: "Wordpress",
     link: "https://thepizzabox.co.uk/",
     state: "Completed",
@@ -19,7 +19,7 @@ const dataArr = [
     height: 600,
   },
   {
-    src: "/uploads/1759663798558.png",
+    src: "uploads/1759663798558.png",
     tool: "Wordpress",
     link: "https://ursports.co/",
     state: "Completed",
@@ -29,7 +29,7 @@ const dataArr = [
     height: 600,
   },
   {
-    src: "/uploads/1759664802629.png",
+    src: "uploads/1759664802629.png",
     tool: "Shopify",
     link: "https://www.finelinesuk.com/",
     state: "Completed",
@@ -39,7 +39,7 @@ const dataArr = [
     height: 600,
   },
   {
-    src: "/uploads/1759721449338.webp",
+    src: "uploads/1759721449338.webp",
     tool: "Wordpress",
     link: "https://remitrio.com/",
     state: "Completed",
@@ -49,7 +49,7 @@ const dataArr = [
     height: 600,
   },
   {
-    src: "/uploads/1759721672336.webp",
+    src: "uploads/1759721672336.webp",
     tool: "Shopify",
     link: "https://www.highlandredstone.com/",
     state: "Completed",
@@ -59,7 +59,7 @@ const dataArr = [
     height: 600,
   },
   {
-    src: "/uploads/1759722346562.webp",
+    src: "uploads/1759722346562.webp",
     tool: "Shopify",
     link: "https://3hscents.com/",
     state: "Completed",
@@ -69,7 +69,7 @@ const dataArr = [
     height: 600,
   },
   {
-    src: "/uploads/1759722525772.webp",
+    src: "uploads/1759722525772.webp",
     tool: "Wordpress",
     link: "https://paklovebeauty.co.uk/",
     state: "Completed",
@@ -79,7 +79,7 @@ const dataArr = [
     height: 600,
   },
   {
-    src: "/uploads/1759722719910.webp",
+    src: "uploads/1759722719910.webp",
     tool: "Wordpress",
     link: "https://voguemensalon.vip/",
     state: "Completed",
