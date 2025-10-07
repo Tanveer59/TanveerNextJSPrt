@@ -165,7 +165,7 @@ const Projects = () => {
       displayedProjects.map((item, index) => (
         <div
           key={`${item.link}-${index}`}
-          className="product-card opacity-0 transform transition-all duration-300 border border-transparent hover:border-white"
+          className="product-card opacity-0 transform transition-all duration-300 border border-transparent"
         >
           <MemoizedProduct
             src={item.src}
