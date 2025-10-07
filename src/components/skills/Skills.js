@@ -1,9 +1,4 @@
 'use client';
-
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   FaReact,
   FaNodeJs,
@@ -21,11 +16,17 @@ import {
   SiExpress,
   SiJavascript,
 } from 'react-icons/si';
-import FluidGlass from '../fluidglass/FluidGlass'; // 🧊 import your 3D background
+import { motion } from 'framer-motion';
+import { PT_Sans, Ubuntu } from 'next/font/google';
+import { useState, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Icon map
+const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] });
+const ubuntu = Ubuntu({ weight: '500', subsets: ['latin'] });
+
 const iconMapping = {
   React: FaReact,
   'Next.js': SiNextdotjs,
@@ -42,7 +43,6 @@ const iconMapping = {
   Shopify: FaShopify,
 };
 
-// Fallback skill data
 const fallbackSkills = [
   { name: 'Next.js', level: 75, color: 'rgba(0, 0, 0, 1)' },
   { name: 'Node.js', level: 60, color: 'rgba(22, 163, 74, 1)' },
@@ -56,20 +56,25 @@ const fallbackSkills = [
   { name: 'Shopify', level: 90, color: 'rgba(79, 91, 147, 1)' },
 ];
 
-// Gradient helper
 function createGradient(color) {
   const match = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)/);
-  if (!match) return `linear-gradient(90deg, ${color} 0%, rgba(237,221,83,1) 100%)`;
+  if (!match)
+    return `linear-gradient(90deg, ${color} 0%, rgba(237,221,83,1) 100%)`;
 
   const [r, g, b] = match.slice(1, 4).map(Number);
-  const lighten = (v, amt) => Math.min(v + amt, 255);
-  const darken = (v, amt) => Math.max(v - amt, 0);
-  const lighter = `rgba(${lighten(r, 40)}, ${lighten(g, 40)}, ${lighten(b, 40)}, 1)`;
+  const lighten = (val, amount) => Math.min(val + amount, 255);
+  const darken = (val, amount) => Math.max(val - amount, 0);
+
+  const lighter = `rgba(${lighten(r, 40)}, ${lighten(g, 40)}, ${lighten(
+    b,
+    40
+  )}, 1)`;
   const darker = `rgba(${darken(r, 40)}, ${darken(g, 40)}, ${darken(b, 40)}, 1)`;
+
   return `linear-gradient(90deg, ${lighter} 0%, ${color} 50%, ${darker} 100%)`;
 }
 
-export default function Skills() {
+const Skills = () => {
   const [skills, setSkills] = useState([]);
   const [error, setError] = useState(null);
   const [visitorCount, setVisitorCount] = useState(0);
@@ -79,16 +84,26 @@ export default function Skills() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const visitorResponse = await fetch('api/visitor', { method: 'GET', cache: 'no-store' });
+        const visitorResponse = await fetch('api/visitor', {
+          method: 'GET',
+          cache: 'no-store',
+        });
+
         if (!visitorResponse.ok) throw new Error('Failed to fetch visitor count');
+
         const visitorData = await visitorResponse.json();
         if (typeof visitorData.count === 'number') setVisitorCount(visitorData.count);
 
         const skillsResponse = await fetch('api/skills');
         const skillsData = await skillsResponse.json();
-        if (Array.isArray(skillsData)) setSkills(skillsData);
-        else if (skillsData.skills && Array.isArray(skillsData.skills)) setSkills(skillsData.skills);
-        else throw new Error('Invalid skills data format');
+
+        if (Array.isArray(skillsData)) {
+          setSkills(skillsData);
+        } else if (skillsData.skills && Array.isArray(skillsData.skills)) {
+          setSkills(skillsData.skills);
+        } else {
+          throw new Error('Invalid skills data format');
+        }
       } catch (err) {
         console.error('Error fetching data:', err);
         setError(err.message);
@@ -103,9 +118,10 @@ export default function Skills() {
 
   useEffect(() => {
     if (!isLoading && barRefs.current.length > 0) {
-      barRefs.current.forEach((ref, i) => {
-        const skill = skills[i];
+      barRefs.current.forEach((ref, index) => {
+        const skill = skills[index];
         if (!ref || !skill) return;
+
         gsap.fromTo(
           ref,
           { width: '0%' },
@@ -114,7 +130,11 @@ export default function Skills() {
             duration: 2.5,
             ease: 'expo.out',
             background: createGradient(skill.color),
-            scrollTrigger: { trigger: ref, start: 'top 90%', toggleActions: 'play none none none' },
+            scrollTrigger: {
+              trigger: ref,
+              start: 'top 90%',
+              toggleActions: 'play none none none',
+            },
           }
         );
       });
@@ -122,30 +142,46 @@ export default function Skills() {
   }, [isLoading, skills]);
 
   return (
-    <section className="w-full bg-[#000000] text-white py-28 px-4 lg:px-20">
-      <div className="flex flex-col items-center w-full gap-10">
-        <div className="flex flex-col justify-start w-full max-w-6xl">
-          <p className="pb-2 text-white text-lg">Skills & Expertise</p>
-          <p className="md:text-2xl text-gray-200 mb-2">Technologies and tools I work with</p>
+    <section
+      className="relative w-full overflow-hidden text-white 
+                 bg-gradient-to-br from-[#050505] via-[#0a0a0a] to-[#050505]"
+    >
+      {/* Floating glass blobs for fluid motion background */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-cyan-500/10 blur-[120px] rounded-full animate-pulse" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-blue-600/10 blur-[150px] rounded-full animate-pulse-slow" />
+      <div className="absolute top-[20%] right-[20%] w-[25vw] h-[25vw] bg-purple-500/10 blur-[100px] rounded-full animate-pulse" />
+
+      <div className="relative flex flex-col items-center px-4 md:px-10 lg:px-20 py-28 w-full gap-12 backdrop-blur-3xl bg-white/5 rounded-3xl">
+        <div className="text-center md:text-left md:w-full">
+          <h2 className="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+            Skills & Expertise
+          </h2>
+          <p className="mt-2 text-gray-400 text-lg">
+            Technologies and tools I work with
+          </p>
+
           {visitorCount !== null && (
-            <p className="text-sm text-gray-500">
-              All Time Visitors: {visitorCount === 0 ? '1211' : visitorCount}
+            <p className="mt-3 text-sm text-gray-400">
+              All Time Visitors:{' '}
+              <span className="text-gray-200 font-medium">
+                {visitorCount === 0 ? '1211' : visitorCount}
+              </span>
             </p>
           )}
+
           {error && (
-            <div className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+            <div className="mt-4 p-4 bg-red-900/30 border border-red-600 text-red-400 rounded-lg">
               <p className="font-semibold">Error:</p>
               <p className="text-sm">{error}</p>
             </div>
           )}
         </div>
 
-        {/* 🧊 Skill Cards with FluidGlass */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
           {isLoading ? (
-            <div className="col-span-full text-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-300 mx-auto"></div>
-              <p className="mt-2 text-white">Loading skills...</p>
+            <div className="col-span-full flex flex-col items-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-400"></div>
+              <p className="mt-2 text-gray-400">Loading skills...</p>
             </div>
           ) : (
             skills.map((skill, index) => {
@@ -156,42 +192,28 @@ export default function Skills() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative overflow-hidden rounded-2xl border border-white/20 backdrop-blur-2xl shadow-lg hover:shadow-cyan-400/30 transition-all p-6"
-                  style={{ background: 'rgba(255, 255, 255, 0.05)' }}
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 hover:border-cyan-400/50 
+                             shadow-lg hover:shadow-cyan-500/20 p-6 rounded-2xl transition-all"
                 >
-                  {/* Fluid glass background */}
-                  <div className="absolute inset-0 z-0">
-                    <FluidGlass
-                      mode="lens"
-                      lensProps={{
-                        ior: 1.2,
-                        thickness: 4,
-                        chromaticAberration: 0.05,
-                        roughness: 0,
-                        transmission: 1,
-                        color: skill.color,
+                  <div className="flex items-center gap-3 mb-4">
+                    {Icon && (
+                      <Icon className="text-3xl" style={{ color: skill.color }} />
+                    )}
+                    <h3 className="text-lg font-semibold text-gray-100">
+                      {skill.name}
+                    </h3>
+                  </div>
+                  <div className="w-full bg-white/10 rounded-full h-2.5 overflow-hidden">
+                    <div
+                      className="h-2.5 rounded-full"
+                      ref={(el) => {
+                        if (el) barRefs.current[index] = el;
                       }}
-                    />
+                    ></div>
                   </div>
-
-                  {/* Foreground Content */}
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-4 mb-4">
-                      {Icon && <Icon className="text-3xl" style={{ color: skill.color }} />}
-                      <h3 className="text-lg font-semibold text-gray-100">{skill.name}</h3>
-                    </div>
-
-                    <div className="w-full bg-white/10 rounded-full h-2.5 overflow-hidden">
-                      <div
-                        className="h-2.5 rounded-full"
-                        ref={(el) => {
-                          if (el) barRefs.current[index] = el;
-                        }}
-                      ></div>
-                    </div>
-
-                    <p className="mt-2 text-sm text-gray-300">{skill.level}% proficiency</p>
-                  </div>
+                  <p className="mt-2 text-sm text-gray-400">
+                    {skill.level}% proficiency
+                  </p>
                 </motion.div>
               );
             })
@@ -200,4 +222,6 @@ export default function Skills() {
       </div>
     </section>
   );
-}
+};
+
+export default Skills;
