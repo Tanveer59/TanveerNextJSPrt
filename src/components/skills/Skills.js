@@ -137,7 +137,7 @@ const Skills = () => {
   }, [isLoading, skills]);
 
   return (
-    <section className="w-full bg-[#E5E5E5] dark:bg-[#000000]">
+    <section className="w-full bg-[#000000] dark:bg-[#000000]">
       <div className="flex flex-col items-center p-2 lg:px-20 pt-28 pb-28 w-full gap-10">
         <div className="outfit-light flex flex-col justify-start md:w-[100%]">
           <p className="pb-2 text-white">Skills & Expertise</p>
