@@ -50,7 +50,7 @@ const CardNav = ({
       textColor: "#000",
       links: [
         { label: "tanveerwebdev@gmail.com", href: "mailto:tanveerwebdev@gmail.com" },
-        { label: "+92 3454249682", href: "tel:+923454249682" },
+        { label: "+92 323-5623393", href: "tel:+923235623393" },
       ],
     },
   ];
