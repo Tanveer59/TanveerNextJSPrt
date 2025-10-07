@@ -143,8 +143,7 @@ const Skills = () => {
 
   return (
     <section
-      className="relative w-full overflow-hidden text-white 
-                 bg-gradient-to-br from-[#050505] via-[#0a0a0a] to-[#050505]"
+      className=""
     >
       <div className="relative flex flex-col items-center px-4 md:px-10 lg:px-20 py-28 w-full gap-12 backdrop-blur-3xl bg-white/5 rounded-3xl">
         <div className="text-center md:text-left md:w-full">
