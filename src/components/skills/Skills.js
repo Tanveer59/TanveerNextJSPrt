@@ -184,7 +184,7 @@ const Skills = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-[#111111]/70 border border-[#1f1f1f] hover:border-cyan-500/40 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/10 transition-all"
+                  className="bg-[#111111]/70 border z-10 border-[#1f1f1f] hover:border-cyan-500/40 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/10 transition-all"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     {Icon && (
