@@ -75,7 +75,7 @@ const Skills = () => {
     const fetchData = async () => {
       try {
         // Fetch visitor count
-        const visitorResponse = await fetch('/api/visitor', {
+        const visitorResponse = await fetch('api/visitor', {
           method: 'GET',
           cache: 'no-store'
         });
@@ -90,7 +90,7 @@ const Skills = () => {
         }
 
         // Fetch skills data
-        const skillsResponse = await fetch('/api/skills');
+        const skillsResponse = await fetch('api/skills');
         const skillsData = await skillsResponse.json();
         
         // Ensure we have an array of skills
@@ -137,16 +137,16 @@ const Skills = () => {
   }, [isLoading, skills]);
 
   return (
-    <section className="w-full bg-[#E5E5E5] dark:bg-[#E5E5E5]">
+    <section className="w-full bg-[#E5E5E5] dark:bg-[#000000]">
       <div className="flex flex-col items-center p-2 lg:px-20 pt-28 pb-28 w-full gap-10">
         <div className="outfit-light flex flex-col justify-start md:w-[100%]">
-          <p className="pb-2 text-gray-400">Skills & Expertise</p>
-          <p className="md:text-2xl md:w-[70%] lg:text-2xl lg:pr-60">
+          <p className="pb-2 text-white">Skills & Expertise</p>
+          <p className="md:text-2xl md:w-[70%] lg:text-2xl lg:pr-60 text-white">
             Technologies and tools I work with
           </p>
 
           {visitorCount !== null && (
-            <p className="mt-2 text-gray-500 text-sm">
+            <p className="mt-2 text-gray-500 text-sm text-white">
               All Time Visitors: {visitorCount == 0 ? '1211' : visitorCount }
             </p>
           )}
@@ -163,7 +163,7 @@ const Skills = () => {
           {isLoading ? (
             <div className="col-span-full text-center">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
-              <p className="mt-2 text-gray-600">Loading skills...</p>
+              <p className="mt-2 text-white">Loading skills...</p>
             </div>
           ) : (
             skills.map((skill, index) => {
