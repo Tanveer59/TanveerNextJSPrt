@@ -146,11 +146,6 @@ const Skills = () => {
       className="relative w-full overflow-hidden text-white 
                  bg-gradient-to-br from-[#050505] via-[#0a0a0a] to-[#050505]"
     >
-      {/* Floating glass blobs for fluid motion background */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-cyan-500/10 blur-[120px] rounded-full animate-pulse" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-blue-600/10 blur-[150px] rounded-full animate-pulse-slow" />
-      <div className="absolute top-[20%] right-[20%] w-[25vw] h-[25vw] bg-purple-500/10 blur-[100px] rounded-full animate-pulse" />
-
       <div className="relative flex flex-col items-center px-4 md:px-10 lg:px-20 py-28 w-full gap-12 backdrop-blur-3xl bg-white/5 rounded-3xl">
         <div className="text-center md:text-left md:w-full">
           <h2 className="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
