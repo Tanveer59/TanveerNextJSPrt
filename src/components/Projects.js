@@ -88,6 +88,16 @@ const dataArr = [
     width: 800,
     height: 600,
   },
+    {
+    src: "uploads/1759663245533.png",
+    tool: "Wordpress",
+    link: "https://thepizzabox.co.uk/",
+    state: "Completed",
+    color: "bg-green-500",
+    alt: "Wordpress Project",
+    width: 800,
+    height: 600,
+  },
 ];
 
 const MemoizedProduct = memo(Product);
