@@ -142,10 +142,18 @@ const Skills = () => {
   }, [isLoading, skills]);
 
   return (
-    <section className="w-full bg-gradient-to-b from-[#0a0a0a] via-[#111111] to-[#0a0a0a] text-white">
-      <div className="flex flex-col items-center px-4 md:px-10 lg:px-20 py-28 w-full gap-12">
+    <section
+      className="relative w-full overflow-hidden text-white 
+                 bg-gradient-to-br from-[#050505] via-[#0a0a0a] to-[#050505]"
+    >
+      {/* Floating glass blobs for fluid motion background */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-cyan-500/10 blur-[120px] rounded-full animate-pulse" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-blue-600/10 blur-[150px] rounded-full animate-pulse-slow" />
+      <div className="absolute top-[20%] right-[20%] w-[25vw] h-[25vw] bg-purple-500/10 blur-[100px] rounded-full animate-pulse" />
+
+      <div className="relative flex flex-col items-center px-4 md:px-10 lg:px-20 py-28 w-full gap-12 backdrop-blur-3xl bg-white/5 rounded-3xl">
         <div className="text-center md:text-left md:w-full">
-          <h2 className="pb-2 text-[#c7c7c7]">
+          <h2 className="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
             Skills & Expertise
           </h2>
           <p className="mt-2 text-gray-400 text-lg">
@@ -153,9 +161,9 @@ const Skills = () => {
           </p>
 
           {visitorCount !== null && (
-            <p className="mt-3 text-sm text-gray-500">
+            <p className="mt-3 text-sm text-gray-400">
               All Time Visitors:{' '}
-              <span className="text-gray-300 font-medium">
+              <span className="text-gray-200 font-medium">
                 {visitorCount === 0 ? '1211' : visitorCount}
               </span>
             </p>
@@ -184,17 +192,18 @@ const Skills = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-[#111111]/70 border z-10 border-[#1f1f1f] hover:border-cyan-500/40 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/10 transition-all"
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 hover:border-cyan-400/50 
+                             shadow-lg hover:shadow-cyan-500/20 p-6 rounded-2xl transition-all"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     {Icon && (
                       <Icon className="text-3xl" style={{ color: skill.color }} />
                     )}
-                    <h3 className="text-lg font-semibold text-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-100">
                       {skill.name}
                     </h3>
                   </div>
-                  <div className="w-full bg-[#222222] rounded-full h-2.5">
+                  <div className="w-full bg-white/10 rounded-full h-2.5 overflow-hidden">
                     <div
                       className="h-2.5 rounded-full"
                       ref={(el) => {
@@ -202,7 +211,7 @@ const Skills = () => {
                       }}
                     ></div>
                   </div>
-                  <p className="mt-2 text-sm text-gray-500">
+                  <p className="mt-2 text-sm text-gray-400">
                     {skill.level}% proficiency
                   </p>
                 </motion.div>
