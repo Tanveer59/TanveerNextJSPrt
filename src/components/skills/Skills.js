@@ -56,14 +56,14 @@ const fallbackSkills = [
   { name: 'Shopify', level: 90, color: 'rgba(79, 91, 147, 1)' },
 ];
 
-function createGradient(color: string) {
+function createGradient(color) {
   const match = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)/);
   if (!match)
     return `linear-gradient(90deg, ${color} 0%, rgba(237,221,83,1) 100%)`;
 
   const [r, g, b] = match.slice(1, 4).map(Number);
-  const lighten = (val: number, amount: number) => Math.min(val + amount, 255);
-  const darken = (val: number, amount: number) => Math.max(val - amount, 0);
+  const lighten = (val, amount) => Math.min(val + amount, 255);
+  const darken = (val, amount) => Math.max(val - amount, 0);
 
   const lighter = `rgba(${lighten(r, 40)}, ${lighten(g, 40)}, ${lighten(
     b,
@@ -76,10 +76,10 @@ function createGradient(color: string) {
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
-  const [error, setError] = useState<string | null>(null);
-  const [visitorCount, setVisitorCount] = useState<number>(0);
+  const [error, setError] = useState(null);
+  const [visitorCount, setVisitorCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const barRefs = useRef<HTMLDivElement[]>([]);
+  const barRefs = useRef([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -104,7 +104,7 @@ const Skills = () => {
         } else {
           throw new Error('Invalid skills data format');
         }
-      } catch (err: any) {
+      } catch (err) {
         console.error('Error fetching data:', err);
         setError(err.message);
         setSkills(fallbackSkills);
@@ -176,7 +176,7 @@ const Skills = () => {
               <p className="mt-2 text-gray-400">Loading skills...</p>
             </div>
           ) : (
-            skills.map((skill: any, index: number) => {
+            skills.map((skill, index) => {
               const Icon = iconMapping[skill.name];
               return (
                 <motion.div
