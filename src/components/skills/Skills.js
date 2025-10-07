@@ -1,11 +1,20 @@
 'use client';
-
 import {
-  FaReact, FaNodeJs, FaGitAlt, FaFigma, FaWordpress, FaShopify, FaPhp,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+  FaFigma,
+  FaWordpress,
+  FaShopify,
+  FaPhp,
 } from 'react-icons/fa';
 import {
-  SiNextdotjs, SiTailwindcss, SiTypescript, SiMongodb,
-  SiExpress, SiJavascript
+  SiNextdotjs,
+  SiTailwindcss,
+  SiTypescript,
+  SiMongodb,
+  SiExpress,
+  SiJavascript,
 } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import { PT_Sans, Ubuntu } from 'next/font/google';
@@ -18,24 +27,22 @@ gsap.registerPlugin(ScrollTrigger);
 const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] });
 const ubuntu = Ubuntu({ weight: '500', subsets: ['latin'] });
 
-// Icons mapping
 const iconMapping = {
-  'React': FaReact,
+  React: FaReact,
   'Next.js': SiNextdotjs,
   'Node.js': FaNodeJs,
-  'TypeScript': SiTypescript,
-  'JavaScript': SiJavascript,
+  TypeScript: SiTypescript,
+  JavaScript: SiJavascript,
   'Tailwind CSS': SiTailwindcss,
-  'MongoDB': SiMongodb,
-  'Express': SiExpress,
-  'Git': FaGitAlt,
-  'Figma': FaFigma,
-  'PHP': FaPhp,
-  'WordPress': FaWordpress,
-  'Shopify': FaShopify,
+  MongoDB: SiMongodb,
+  Express: SiExpress,
+  Git: FaGitAlt,
+  Figma: FaFigma,
+  PHP: FaPhp,
+  WordPress: FaWordpress,
+  Shopify: FaShopify,
 };
 
-// Fallback skills
 const fallbackSkills = [
   { name: 'Next.js', level: 75, color: 'rgba(0, 0, 0, 1)' },
   { name: 'Node.js', level: 60, color: 'rgba(22, 163, 74, 1)' },
@@ -49,16 +56,19 @@ const fallbackSkills = [
   { name: 'Shopify', level: 90, color: 'rgba(79, 91, 147, 1)' },
 ];
 
-// Helper
-function createGradient(color) {
+function createGradient(color: string) {
   const match = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)/);
-  if (!match) return `linear-gradient(90deg, ${color} 0%, rgba(237,221,83,1) 100%)`;
+  if (!match)
+    return `linear-gradient(90deg, ${color} 0%, rgba(237,221,83,1) 100%)`;
 
   const [r, g, b] = match.slice(1, 4).map(Number);
-  const lighten = (val, amount) => Math.min(val + amount, 255);
-  const darken = (val, amount) => Math.max(val - amount, 0);
+  const lighten = (val: number, amount: number) => Math.min(val + amount, 255);
+  const darken = (val: number, amount: number) => Math.max(val - amount, 0);
 
-  const lighter = `rgba(${lighten(r, 40)}, ${lighten(g, 40)}, ${lighten(b, 40)}, 1)`;
+  const lighter = `rgba(${lighten(r, 40)}, ${lighten(g, 40)}, ${lighten(
+    b,
+    40
+  )}, 1)`;
   const darker = `rgba(${darken(r, 40)}, ${darken(g, 40)}, ${darken(b, 40)}, 1)`;
 
   return `linear-gradient(90deg, ${lighter} 0%, ${color} 50%, ${darker} 100%)`;
@@ -66,34 +76,27 @@ function createGradient(color) {
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
-  const [error, setError] = useState(null);
-  const [visitorCount, setVisitorCount] = useState(0);
+  const [error, setError] = useState<string | null>(null);
+  const [visitorCount, setVisitorCount] = useState<number>(0);
   const [isLoading, setIsLoading] = useState(true);
-  const barRefs = useRef([]);
+  const barRefs = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch visitor count
         const visitorResponse = await fetch('api/visitor', {
           method: 'GET',
-          cache: 'no-store'
+          cache: 'no-store',
         });
-        
-        if (!visitorResponse.ok) {
-          throw new Error('Failed to fetch visitor count');
-        }
-        
-        const visitorData = await visitorResponse.json();
-        if (typeof visitorData.count === 'number') {
-          setVisitorCount(visitorData.count);
-        }
 
-        // Fetch skills data
+        if (!visitorResponse.ok) throw new Error('Failed to fetch visitor count');
+
+        const visitorData = await visitorResponse.json();
+        if (typeof visitorData.count === 'number') setVisitorCount(visitorData.count);
+
         const skillsResponse = await fetch('api/skills');
         const skillsData = await skillsResponse.json();
-        
-        // Ensure we have an array of skills
+
         if (Array.isArray(skillsData)) {
           setSkills(skillsData);
         } else if (skillsData.skills && Array.isArray(skillsData.skills)) {
@@ -101,7 +104,7 @@ const Skills = () => {
         } else {
           throw new Error('Invalid skills data format');
         }
-      } catch (err) {
+      } catch (err: any) {
         console.error('Error fetching data:', err);
         setError(err.message);
         setSkills(fallbackSkills);
@@ -119,7 +122,8 @@ const Skills = () => {
         const skill = skills[index];
         if (!ref || !skill) return;
 
-        gsap.fromTo(ref,
+        gsap.fromTo(
+          ref,
           { width: '0%' },
           {
             width: `${skill.level}%`,
@@ -130,43 +134,49 @@ const Skills = () => {
               trigger: ref,
               start: 'top 90%',
               toggleActions: 'play none none none',
-            }
-          });
+            },
+          }
+        );
       });
     }
   }, [isLoading, skills]);
 
   return (
-    <section className="w-full bg-[#000000] dark:bg-[#000000]">
-      <div className="flex flex-col items-center p-2 lg:px-20 pt-28 pb-28 w-full gap-10">
-        <div className="outfit-light flex flex-col justify-start md:w-[100%]">
-          <p className="pb-2 text-white">Skills & Expertise</p>
-          <p className="md:text-2xl md:w-[70%] lg:text-2xl lg:pr-60 text-white">
+    <section className="w-full bg-gradient-to-b from-[#0a0a0a] via-[#111111] to-[#0a0a0a] text-white">
+      <div className="flex flex-col items-center px-4 md:px-10 lg:px-20 py-28 w-full gap-12">
+        <div className="text-center md:text-left md:w-full">
+          <h2 className="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+            Skills & Expertise
+          </h2>
+          <p className="mt-2 text-gray-400 text-lg">
             Technologies and tools I work with
           </p>
 
           {visitorCount !== null && (
-            <p className="mt-2 text-gray-500 text-sm text-white">
-              All Time Visitors: {visitorCount == 0 ? '1211' : visitorCount }
+            <p className="mt-3 text-sm text-gray-500">
+              All Time Visitors:{' '}
+              <span className="text-gray-300 font-medium">
+                {visitorCount === 0 ? '1211' : visitorCount}
+              </span>
             </p>
           )}
 
           {error && (
-            <div className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+            <div className="mt-4 p-4 bg-red-900/30 border border-red-600 text-red-400 rounded-lg">
               <p className="font-semibold">Error:</p>
               <p className="text-sm">{error}</p>
             </div>
           )}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
           {isLoading ? (
-            <div className="col-span-full text-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
-              <p className="mt-2 text-white">Loading skills...</p>
+            <div className="col-span-full flex flex-col items-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-400"></div>
+              <p className="mt-2 text-gray-400">Loading skills...</p>
             </div>
           ) : (
-            skills.map((skill, index) => {
+            skills.map((skill: any, index: number) => {
               const Icon = iconMapping[skill.name];
               return (
                 <motion.div
@@ -174,13 +184,17 @@ const Skills = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                  className="bg-[#111111]/70 border border-[#1f1f1f] hover:border-cyan-500/40 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/10 transition-all"
                 >
-                  <div className="flex items-center gap-4 mb-4">
-                    {Icon && <Icon className="text-2xl" style={{ color: skill.color }} />}
-                    <h3 className="text-lg font-semibold">{skill.name}</h3>
+                  <div className="flex items-center gap-3 mb-4">
+                    {Icon && (
+                      <Icon className="text-3xl" style={{ color: skill.color }} />
+                    )}
+                    <h3 className="text-lg font-semibold text-gray-200">
+                      {skill.name}
+                    </h3>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2.5">
+                  <div className="w-full bg-[#222222] rounded-full h-2.5">
                     <div
                       className="h-2.5 rounded-full"
                       ref={(el) => {
@@ -188,7 +202,9 @@ const Skills = () => {
                       }}
                     ></div>
                   </div>
-                  <p className="mt-2 text-sm text-gray-600">{skill.level}% proficiency</p>
+                  <p className="mt-2 text-sm text-gray-500">
+                    {skill.level}% proficiency
+                  </p>
                 </motion.div>
               );
             })
