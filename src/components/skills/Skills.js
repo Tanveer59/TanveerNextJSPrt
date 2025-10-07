@@ -21,7 +21,7 @@ import { PT_Sans, Ubuntu } from 'next/font/google';
 import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import './skills.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] });
