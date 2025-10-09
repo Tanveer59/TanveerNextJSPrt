@@ -10,29 +10,6 @@ const Footer = () => {
     useEffect(() => {
         const footer = footerRef.current;
 
-        const handleScroll = () => {
-            const scrollY = window.scrollY;
-            const angle = (scrollY * 0.2) % 360;
-
-            const hue1 = (scrollY * 0.4) % 360;
-            const hue2 = (hue1 + 180) % 360;
-
-            const color1 = `hsl(${hue1}, 0%, 0%)`;   // black
-            const color2 = `hsl(${hue2}, 0%, 100%)`; // white
-
-            if (footer) {
-                footer.style.background = `
-                    linear-gradient(
-                        ${angle}deg,
-                        ${color1} 0%,
-                        #000000 25%,
-                        ${color2} 50%,
-                        #000000 75%,
-                        ${color1} 100%
-                    )
-                `;
-            }
-        };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -42,18 +19,6 @@ const Footer = () => {
         <footer
             ref={footerRef}
             className="w-full text-white py-20 relative overflow-hidden"
-            style={{
-                background: `
-                    linear-gradient(
-                        0deg,
-                        #000000 0%,
-                        #000000 25%,
-                        #ffffff 50%,
-                        #000000 75%,
-                        #000000 100%
-                    )
-                `
-            }}
         >
             <div className="flex flex-col items-center text-center mb-16">
                 <div className="mb-6">
