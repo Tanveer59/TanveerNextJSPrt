@@ -8,17 +8,13 @@ const Footer = () => {
     const footerRef = useRef(null);
 
     useEffect(() => {
-        const footer = footerRef.current;
-
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        // No scroll handler needed anymore
     }, []);
 
     return (
         <footer
             ref={footerRef}
-            className="w-full text-white py-20 relative overflow-hidden"
+            className="w-full text-white py-20 relative overflow-hidden bg-black"
         >
             <div className="flex flex-col items-center text-center mb-16">
                 <div className="mb-6">
@@ -64,3 +60,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
