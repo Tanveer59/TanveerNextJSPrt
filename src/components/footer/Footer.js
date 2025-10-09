@@ -5,7 +5,7 @@ import { SiHashnode } from 'react-icons/si';
 import { useEffect, useRef } from 'react';
 
 const Footer = () => {
-    const footerRef = useRef<HTMLElement | null>(null);
+    const footerRef = useRef(null);
 
     useEffect(() => {
         const footer = footerRef.current;
