@@ -33,12 +33,9 @@ const Footer = () => {
 
             <div className="flex justify-center items-center gap-6 mb-12 flex-wrap">
                 {[
-                    { icon: <FaTwitter size={20} />, href: 'https://twitter.com' },
-                    { icon: <FaDribbble size={20} />, href: 'https://dribbble.com' },
-                    { icon: <FaLinkedin size={20} />, href: 'https://linkedin.com' },
-                    { icon: <SiHashnode size={20} />, href: 'https://hashnode.com' },
-                    { icon: <FaGithub size={20} />, href: 'https://github.com' },
-                    { icon: <FaEnvelope size={20} />, href: 'mailto:contact@example.com' }
+                    { icon: <FaLinkedin size={20} />, href: 'https://www.linkedin.com/in/tanveer-ahmad-9620a12b5' },
+                    { icon: <FaGithub size={20} />, href: 'https://github.com/Tanveer59/' },
+                    { icon: <FaEnvelope size={20} />, href: 'mailto:tanveerwebdev@gmail.com' }
                 ].map((link, i) => (
                     <a
                         key={i}
