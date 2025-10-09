@@ -132,14 +132,14 @@ const CardNav = ({
     <div className="absolute left-1/2 -translate-x-1/2 top-4 w-[90%] max-w-[900px] z-[99]">
       <nav
         ref={navRef}
-        className="rounded-xl shadow-lg overflow-hidden relative transition-all"
-        style={{ backgroundColor: baseColor }}
+        className="rounded-xl overflow-hidden relative transition-all"
+        style={{  backgroundColor: "transparent" }}
       >
         {/* Top Bar */}
         <div className="flex justify-between items-center h-[60px] px-4 relative z-[2]">
           {/* Hamburger */}
           <div
-            className="flex flex-col justify-center items-center cursor-pointer gap-[5px]"
+            className="flex flex-col justify-center items-center cursor-pointer gap-[5px] bg-white p-2 rounded-md hover:shadow-lg"
             style={{ color: menuColor }}
             onClick={toggleMenu}
           >
@@ -157,24 +157,25 @@ const CardNav = ({
 
 
           {/* CTA */}
-          <button
+          <a
             className="hidden md:inline-flex items-center gap-1 px-4 py-1 rounded-md font-medium transition-colors duration-300"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+            href="https://www.linkedin.com/in/tanveer-ahmad-9620a12b5"
           >
             Tanveer Ahmad <IoLogoLinkedin />
-          </button>
+          </a>
         </div>
 
         {/* Dropdown Content */}
         <div
-          className="card-nav-content hidden flex-col md:flex-row gap-3 p-3"
+          className="card-nav-content hidden flex-col md:flex-row gap-3 p-3 bg-white rounded-xl"
           style={{ opacity: 0 }}
         >
           {items.map((item, idx) => (
             <div
               key={item.label}
               ref={setCardRef(idx)}
-              className="flex flex-col flex-1 gap-2 p-4 rounded-lg"
+              className="flex flex-col flex-1 gap-2 p-4 rounded-lg "
               style={{
                 backgroundColor: item.bgColor,
                 color: item.textColor,
